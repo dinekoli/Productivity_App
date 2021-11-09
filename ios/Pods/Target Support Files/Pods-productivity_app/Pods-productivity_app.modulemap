@@ -1,0 +1,6 @@
+module Pods_productivity_app {
+  umbrella header "Pods-productivity_app-umbrella.h"
+
+  export *
+  module * { export * }
+}
