@@ -8,7 +8,7 @@
 
 
 // class HomeScreen extends Component {
- 
+
 //  constructor(props)
 //  {
 //    super(props);
@@ -25,7 +25,7 @@
 //  }
 
 //  GetGridViewItem (item) {
-  
+
 //  Alert.alert(item);
 
 //  }
@@ -39,23 +39,23 @@
 
 
 // <View style={styles.MainContainer}>
- 
+
 //       <FlatList
-      
+
 //          data={ this.state.GridViewItems }
 
 //          renderItem={({item}) =><View style={styles.GridViewBlockStyle}>
 
 //             <Text style={styles.GridViewInsideTextItemStyle} onPress={this.GetGridViewItem.bind(this, item.key)} > {item.key} </Text>
-            
+
 //             </View>}
 
 //          numColumns={2}
 
 //         />
-   
-   
-// </View>           
+
+
+// </View>
 //    );
 //  }
 // }
@@ -119,7 +119,7 @@
 //    padding: 10,
 //    fontSize: 18,
 //    justifyContent: 'center',
-   
+
 //  },
 
 // });
@@ -229,11 +229,11 @@ export default class App extends Component {
               <TouchableOpacity activeOpacity={0.8} style={styles.buttonDesign} onPress={this.changeView}>
                 <Text style={styles.buttonText}>{this.state.btnText}</Text>
               </TouchableOpacity>
-              {/* for (let i = 0; i < 7; i++) { 
+              {/* for (let i = 0; i < 7; i++) {
               } */}
 
 
-              <FlatList 
+              <FlatList
                 key={(this.state.gridView) ? 1 : 0}
                 numColumns={2}
                 // data={this.state.imagesData}
@@ -251,52 +251,52 @@ export default class App extends Component {
   }
 }
 
-const styles = StyleSheet.create(
-  {
-    container: {
-      flex: 1,
-    },
-    imageHolder: {
-      margin: 5,
-      height: 160,
-      flex: 1,
-      position: 'relative'
-    },
-    image: {
-      height: '100%',
-      width: '100%',
-      resizeMode: 'cover'
-    },
-    textViewHolder: {
-      position: 'absolute',
-      left: 0,
-      bottom: 0,
-      right: 0,
-      backgroundColor: 'rgba(0,0,0,0.75)',
-      paddingHorizontal: 10,
-      paddingVertical: 13,
-      alignItems: 'center'
-    },
-    textOnImage: {
-      color: 'white'
-    },
-    loadingContainer: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
-    },
-    loadingText: {
-      paddingTop: 10,
-      fontSize: 18,
-      color: 'black'
-    },
-    buttonDesign: {
-      padding: 15,
-      backgroundColor: '#e91e63'
-    },
-    buttonText: {
-      color: 'white',
-      textAlign: 'center',
-      alignSelf: 'stretch'
-    }
-  });
+// const styles = StyleSheet.create(
+//   {
+//     container: {
+//       flex: 1,
+//     },
+//     imageHolder: {
+//       margin: 5,
+//       height: 160,
+//       flex: 1,
+//       position: 'relative'
+//     },
+//     image: {
+//       height: '100%',
+//       width: '100%',
+//       resizeMode: 'cover'
+//     },
+//     textViewHolder: {
+//       position: 'absolute',
+//       left: 0,
+//       bottom: 0,
+//       right: 0,
+//       backgroundColor: 'rgba(0,0,0,0.75)',
+//       paddingHorizontal: 10,
+//       paddingVertical: 13,
+//       alignItems: 'center'
+//     },
+//     textOnImage: {
+//       color: 'white'
+//     },
+//     loadingContainer: {
+//       flex: 1,
+//       justifyContent: 'center',
+//       alignItems: 'center'
+//     },
+//     loadingText: {
+//       paddingTop: 10,
+//       fontSize: 18,
+//       color: 'black'
+//     },
+//     buttonDesign: {
+//       padding: 15,
+//       backgroundColor: '#e91e63'
+//     },
+//     buttonText: {
+//       color: 'white',
+//       textAlign: 'center',
+//       alignSelf: 'stretch'
+//     }
+//   });
