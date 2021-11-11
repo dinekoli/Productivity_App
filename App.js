@@ -145,7 +145,7 @@ class ImageComponent extends Component {
           <Text numberOfLines={1} style={styles.textOnImage}>
             {this.props.name}
           </Text>
-          <Text numberOfLines={1} style={styles.textOnImage}>
+          <Text numberOfLines={1} style={styles.textOnImage1}>
             {this.props.name}
           </Text>
         </View>
@@ -251,52 +251,59 @@ export default class App extends Component {
   }
 }
 
-// const styles = StyleSheet.create(
-//   {
-//     container: {
-//       flex: 1,
-//     },
-//     imageHolder: {
-//       margin: 5,
-//       height: 160,
-//       flex: 1,
-//       position: 'relative'
-//     },
-//     image: {
-//       height: '100%',
-//       width: '100%',
-//       resizeMode: 'cover'
-//     },
-//     textViewHolder: {
-//       position: 'absolute',
-//       left: 0,
-//       bottom: 0,
-//       right: 0,
-//       backgroundColor: 'rgba(0,0,0,0.75)',
-//       paddingHorizontal: 10,
-//       paddingVertical: 13,
-//       alignItems: 'center'
-//     },
-//     textOnImage: {
-//       color: 'white'
-//     },
-//     loadingContainer: {
-//       flex: 1,
-//       justifyContent: 'center',
-//       alignItems: 'center'
-//     },
-//     loadingText: {
-//       paddingTop: 10,
-//       fontSize: 18,
-//       color: 'black'
-//     },
-//     buttonDesign: {
-//       padding: 15,
-//       backgroundColor: '#e91e63'
-//     },
-//     buttonText: {
-//       color: 'white',
-//       textAlign: 'center',
-//       alignSelf: 'stretch'
-//     }
-//   });
+const styles = StyleSheet.create(
+  {
+    container: {
+      flex: 1,
+      backgroundColor:'#EEEDE7'
+    },
+    imageHolder: {
+      margin: 5,
+      height: 160,
+      flex: 1,
+      position: 'relative'
+    },
+    image: {
+      height: '100%',
+      width: '100%',
+      resizeMode: 'cover'
+    },
+    textViewHolder: {
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
+      right: 0,
+      backgroundColor: 'rgba(0,0,0,0.75)',
+      paddingHorizontal: 10,
+      paddingVertical: 13,
+      alignItems: 'center'
+    },
+    textOnImage: {
+      color: 'white',
+      alignSelf: 'flex-start'
+    },
+    textOnImage1: {
+      color: 'white',
+      alignSelf: 'flex-start',
+      fontSize: 10
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    loadingText: {
+      paddingTop: 10,
+      fontSize: 18,
+      color: 'black'
+    },
+    buttonDesign: {
+      padding: 15,
+      backgroundColor: '#e91e63'
+    },
+    buttonText: {
+      color: 'white',
+      textAlign: 'center',
+      alignSelf: 'stretch'
+    }
+  });
