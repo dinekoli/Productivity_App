@@ -1,142 +1,14 @@
-// import React, { Component } from 'react';
-
-// import { AppRegistry, StyleSheet, FlatList, Text, View, Alert, Platform } from 'react-native';
-
-// import { NavigationContainer } from '@react-navigation/native';
-
-// import { createStackNavigator } from '@react-navigation/stack';
-
-
-// class HomeScreen extends Component {
-
-//  constructor(props)
-//  {
-//    super(props);
-
-//    this.state = { GridViewItems: [
-//      {key: 'One'},
-//      {key: 'Two'},
-//      {key: 'Three'},
-//      {key: 'Four'},
-//      {key: 'Five'},
-//      {key: 'Six'},
-//      {key: 'Seven'}
-//    ]}
-//  }
-
-//  GetGridViewItem (item) {
-
-//  Alert.alert(item);
-
-//  }
-
-//  static navigationOptions = {
-//   title: 'Home',
-// };
-
-//  render() {
-//    return (
-
-
-// <View style={styles.MainContainer}>
-
-//       <FlatList
-
-//          data={ this.state.GridViewItems }
-
-//          renderItem={({item}) =><View style={styles.GridViewBlockStyle}>
-
-//             <Text style={styles.GridViewInsideTextItemStyle} onPress={this.GetGridViewItem.bind(this, item.key)} > {item.key} </Text>
-
-//             </View>}
-
-//          numColumns={2}
-
-//         />
-
-
-// </View>
-//    );
-//  }
-// }
-
-// const Stack = createStackNavigator();
-
-// function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator screenOptions={{
-//         headerStyle: {
-//           backgroundColor: '#f4511e',
-//         },
-//         headerTintColor: '#fff',
-//         headerTitleStyle: {
-//           fontWeight: 'bold',
-//         },
-//       }}>
-//         <Stack.Screen name="Home" component={HomeScreen} options={{
-//           title: 'My home',
-//           headerTitleAlign: 'left',
-//           headerStyle: {
-//             backgroundColor: '#f4511e',
-//           },
-//           headerTintColor: '#fff',
-//           headerTitleStyle: {
-//             fontWeight: 'bold',
-//             placement:"left"
-//           },
-//         }}/>
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-// const styles = StyleSheet.create({
-
-// MainContainer :{
-
-// justifyContent: 'center',
-// flex:1,
-// margin: 10,
-// paddingTop: (Platform.OS) === 'ios' ? 20 : 0
-
-// },
-
-// GridViewBlockStyle: {
-
-//   justifyContent: 'center',
-//   flex:1,
-//   alignItems: 'center',
-//   height: 100,
-//   margin: 5,
-//   backgroundColor: '#00BCD4'
-
-// }
-// ,
-
-// GridViewInsideTextItemStyle: {
-
-//    color: '#fff',
-//    padding: 10,
-//    fontSize: 18,
-//    justifyContent: 'center',
-
-//  },
-
-// });
-
-// export default App;
-
-
-
-
 import React, { Component } from 'react';
-import { AppRegistry, TouchableOpacity, Image, FlatList, ActivityIndicator, StyleSheet, View, Platform, Text } from 'react-native';
+import { AppRegistry, TouchableOpacity,  Image, Button, Header, TouchableWithoutFeedback, Dimensions, FlatList, ActivityIndicator, StyleSheet, View, Platform, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 class ImageComponent extends Component {
 
   constructor() {
     super();
   }
+
   render() {
     return (
       <View style={styles.imageHolder}>
@@ -152,8 +24,10 @@ class ImageComponent extends Component {
       </View>
     );
   }
+
 }
 
+const Stack = createStackNavigator();
 
 var flatListData = [
   {
@@ -182,6 +56,70 @@ var flatListData = [
     imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Nature.jpeg'
   }
 ]
+
+class HomeScreen extends Component {
+
+  constructor() {
+    super();
+    this.state = { imagesData: null, loading: false, gridView: true, btnText: 'Show List' }
+  }
+
+  render() {
+    return (
+      <View style={styles.container} >
+        {
+          (this.state.loading)
+            ?
+            (<View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" />
+              <Text style={styles.loadingText}>Please Wait...</Text>
+            </View>)
+            :
+            (<View style={{ flex: 1 }}>
+
+              {/* <TouchableOpacity activeOpacity={0.8} style={styles.buttonDesign} onPress={this.changeView}>
+                <Text style={styles.buttonText}>{this.state.btnText}</Text>
+              </TouchableOpacity> */}
+
+            <FlatList
+              key={(this.state.gridView) ? 1 : 0}
+              numColumns={2}
+              // data={this.state.imagesData}
+              data={flatListData}
+              renderItem={({ item }) =>
+                <ImageComponent imageURI={item.imageUrl} name={item.name.toUpperCase()} />
+              }
+              keyExtractor={(item) => item.id}
+              />
+
+          </View>)
+          }
+      </View>
+    );
+  }
+}
+
+function HeaderComponent() {
+  return (
+    <View style={{ height: 'auto', width: Dimensions.get('window').width*0.93, alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row'}}>
+
+      <TouchableWithoutFeedback style={{flex: 2}} onPress={() => alert('This is profile image')}>
+        <Image source={require('./Resource/ReactNative-HouseImage/user.png')} style={styles.UserImage}  />
+      </TouchableWithoutFeedback>
+
+      <Text style={{ flex: 1, fontWeight: 'bold', fontSize: 20, fontWeight: '800'}}>Dashboard</Text>
+
+      <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is bell image')}>
+        <Image source={require('./Resource/ReactNative-HouseImage/bell.png')} style={styles.BellImage}  />
+      </TouchableWithoutFeedback>
+
+      <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is search image')}>
+        <Image source={require('./Resource/ReactNative-HouseImage/search.png')} style={styles.SearchImage}  />
+      </TouchableWithoutFeedback>
+
+    </View>
+  );
+}
 
 
 export default class App extends Component {
@@ -215,38 +153,30 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container} >
-        {
-          (this.state.loading)
-            ?
-            (<View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" />
-              <Text style={styles.loadingText}>Please Wait...</Text>
-            </View>)
-            :
-            (<View style={{ flex: 1 }}>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerStyle: {
+          backgroundColor: '#EEEDE7',
+        },
+        headerTintColor: '#EEEDE7',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+        <Stack.Screen name="Home" component={HomeScreen} options={{
+          headerTitle: (props) => <HeaderComponent {...props} />,          
+          headerStyle: {
+            backgroundColor: '#EEEDE7',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            placement:"left"
+          },
+        }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
 
-              <TouchableOpacity activeOpacity={0.8} style={styles.buttonDesign} onPress={this.changeView}>
-                <Text style={styles.buttonText}>{this.state.btnText}</Text>
-              </TouchableOpacity>
-              {/* for (let i = 0; i < 7; i++) {
-              } */}
-
-
-              <FlatList
-                key={(this.state.gridView) ? 1 : 0}
-                numColumns={2}
-                // data={this.state.imagesData}
-                data={flatListData}
-                renderItem={({ item }) =>
-                  <ImageComponent imageURI={item.imageUrl} name={item.name.toUpperCase()} />
-                }
-                keyExtractor={(item) => item.id}
-                />
-
-            </View>)
-        }
-      </View>
     );
   }
 }
@@ -305,5 +235,20 @@ const styles = StyleSheet.create(
       color: 'white',
       textAlign: 'center',
       alignSelf: 'stretch'
+    },
+    UserImage: {
+      marginRight: 10,
+      width: 25,
+      height: 25
+    },
+    BellImage: {
+      right: 10,
+      width: 25,
+      height: 25
+    },
+    SearchImage: {
+      right: 0,
+      width: 20,
+      height: 20
     }
   });
