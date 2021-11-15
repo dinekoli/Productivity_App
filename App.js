@@ -54,6 +54,16 @@ var flatListData = [
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
     name : 'Nature',
     imageUrl : require('./Resource/ReactNative-HouseImage/Nature.jpeg')
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
+    name : 'Leaves',
+    imageUrl : require('./Resource/ReactNative-HouseImage/leaves.jpeg')
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
+    name : 'Sunrise',
+    imageUrl : require('./Resource/ReactNative-HouseImage/sunrise.jpeg')
   }
 ]
 
@@ -204,17 +214,17 @@ const styles = StyleSheet.create(
       left: 0,
       bottom: 0,
       right: 0,
-      backgroundColor: 'rgba(0,0,0,0.75)',
-      paddingHorizontal: 10,
-      paddingVertical: 13,
+      backgroundColor: 'white',
+      paddingHorizontal: 5,
+      paddingVertical: 5,
       alignItems: 'center'
     },
     textOnImage: {
-      color: 'white',
+      color: '#055C9D',
       alignSelf: 'flex-start'
     },
     textOnImage1: {
-      color: 'white',
+      color: 'black',
       alignSelf: 'flex-start',
       fontSize: 10
     },
