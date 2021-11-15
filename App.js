@@ -12,7 +12,7 @@ class ImageComponent extends Component {
   render() {
     return (
       <View style={styles.imageHolder}>
-        <Image source={{ uri: this.props.imageURI }} style={styles.image} />
+        <Image source={this.props.imageURI} style={styles.image} />
         <View style={styles.textViewHolder}>
           <Text numberOfLines={1} style={styles.textOnImage}>
             {this.props.name}
@@ -33,27 +33,27 @@ var flatListData = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     name : 'Apple',
-    imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Apple.jpeg'
+    imageUrl : require('./Resource/ReactNative-HouseImage/Apple.jpeg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bb',
     name : 'Camera',
-    imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Camera.jpeg'
+    imageUrl : require('./Resource/ReactNative-HouseImage/Camera.jpeg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bc',
     name : 'Car',
-    imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Car.jpeg'
+    imageUrl : require('./Resource/ReactNative-HouseImage/Car.jpeg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bd',
     name : 'Taj Mahal',
-    imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Taj_Mahal.jpeg'
+    imageUrl : require('./Resource/ReactNative-HouseImage/Taj_Mahal.jpeg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
     name : 'Nature',
-    imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Nature.jpeg'
+    imageUrl : require('./Resource/ReactNative-HouseImage/Nature.jpeg')
   }
 ]
 
@@ -101,13 +101,13 @@ class HomeScreen extends Component {
 
 function HeaderComponent() {
   return (
-    <View style={{ height: 'auto', width: Dimensions.get('window').width*0.93, alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row'}}>
+    <View style={styles.HeaderRow}>
 
       <TouchableWithoutFeedback style={{flex: 2}} onPress={() => alert('This is profile image')}>
         <Image source={require('./Resource/ReactNative-HouseImage/user.png')} style={styles.UserImage}  />
       </TouchableWithoutFeedback>
 
-      <Text style={{ flex: 1, fontWeight: 'bold', fontSize: 20, fontWeight: '800'}}>Dashboard</Text>
+      <Text style={styles.HeaderName}>Dashboard</Text>
 
       <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is bell image')}>
         <Image source={require('./Resource/ReactNative-HouseImage/bell.png')} style={styles.BellImage}  />
@@ -164,7 +164,7 @@ export default class App extends Component {
         },
       }}>
         <Stack.Screen name="Home" component={HomeScreen} options={{
-          headerTitle: (props) => <HeaderComponent {...props} />,          
+          headerTitle: (props) => <HeaderComponent {...props} />,
           headerStyle: {
             backgroundColor: '#EEEDE7',
           },
@@ -191,7 +191,8 @@ const styles = StyleSheet.create(
       margin: 5,
       height: 160,
       flex: 1,
-      position: 'relative'
+      position: 'relative',
+      backgroundColor:'#FFF'
     },
     image: {
       height: '100%',
@@ -250,5 +251,18 @@ const styles = StyleSheet.create(
       right: 0,
       width: 20,
       height: 20
+    },
+    HeaderRow: {
+      height: 'auto',
+      width: Dimensions.get('window').width*0.93,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      flexDirection: 'row'
+    },
+    HeaderName: {
+      flex: 1,
+      fontWeight: 'bold',
+      fontSize: 20,
+      fontWeight: '800'
     }
   });
