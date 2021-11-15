@@ -54,6 +54,31 @@ var flatListData = [
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
     name : 'Nature',
     imageUrl : require('./Resource/ReactNative-HouseImage/Nature.jpeg')
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    name : 'Apple',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Apple.jpeg')
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bb',
+    name : 'Camera',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Camera.jpeg')
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bc',
+    name : 'Car',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Car.jpeg')
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bd',
+    name : 'Taj Mahal',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Taj_Mahal.jpeg')
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
+    name : 'Nature',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Nature.jpeg')
   }
 ]
 
@@ -103,7 +128,7 @@ function HeaderComponent() {
   return (
     <View style={styles.HeaderRow}>
 
-      <TouchableWithoutFeedback style={{flex: 2}} onPress={() => alert('This is profile image')}>
+      <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is profile image')}>
         <Image source={require('./Resource/ReactNative-HouseImage/user.png')} style={styles.UserImage}  />
       </TouchableWithoutFeedback>
 
@@ -185,19 +210,23 @@ const styles = StyleSheet.create(
   {
     container: {
       flex: 1,
-      backgroundColor:'#EEEDE7'
+      backgroundColor:'#EEEDE7',
+      marginBottom: 40
     },
     imageHolder: {
       margin: 5,
-      height: 160,
-      flex: 1,
+      height: Dimensions.get('window').width*0.5 - 10,
+      width: Dimensions.get('window').width*0.5 - 10,
+      // flex: 1,
       position: 'relative',
-      backgroundColor:'#FFF'
+      backgroundColor:'#FFF',
+      borderColor: '#000',
     },
     image: {
       height: '100%',
       width: '100%',
-      resizeMode: 'cover'
+      resizeMode: 'cover',
+      borderRadius: 5
     },
     textViewHolder: {
       position: 'absolute',
@@ -207,7 +236,8 @@ const styles = StyleSheet.create(
       backgroundColor: 'rgba(0,0,0,0.75)',
       paddingHorizontal: 10,
       paddingVertical: 13,
-      alignItems: 'center'
+      alignItems: 'center',
+      borderRadius: 5
     },
     textOnImage: {
       color: 'white',
@@ -253,7 +283,7 @@ const styles = StyleSheet.create(
       height: 20
     },
     HeaderRow: {
-      height: 'auto',
+      height: 40,
       width: Dimensions.get('window').width*0.93,
       alignItems: 'center',
       justifyContent: 'flex-start',
