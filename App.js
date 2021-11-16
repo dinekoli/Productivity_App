@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { AppRegistry, TouchableOpacity,  Image, Button, Header, TouchableWithoutFeedback, Dimensions, FlatList, ActivityIndicator, StyleSheet, View, Platform, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 class ImageComponent extends Component {
 
@@ -27,7 +29,7 @@ class ImageComponent extends Component {
 
 }
 
-const Stack = createStackNavigator();
+
 
 var flatListData = [
   {
@@ -109,6 +111,35 @@ class HomeScreen extends Component {
   }
 }
 
+const Stack = createStackNavigator();
+
+const StackNavigator = () => {
+  return (
+    <Stack.Navigator screenOptions={{
+      headerStyle: {
+        backgroundColor: '#EEEDE7',
+      },
+      headerTintColor: '#EEEDE7',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}>
+      <Stack.Screen name="Home" component={HomeScreen} options={{
+        headerTitle: (props) => <HeaderComponent {...props} />,
+        headerStyle: {
+          backgroundColor: '#EEEDE7',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          placement:"left"
+        },
+      }}/>
+    </Stack.Navigator>
+  );
+};
+
+
 function HeaderComponent() {
   return (
     <View style={styles.HeaderRow}>
@@ -130,6 +161,35 @@ function HeaderComponent() {
     </View>
   );
 }
+
+function SecondScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>SecondScreen</Text>
+    </View>
+  );
+}
+
+function ThirdScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>ThirdScreen</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" options={{headerShown: false}} component={StackNavigator} />
+      <Tab.Screen name="SecondScreen" component={SecondScreen} />
+      <Tab.Screen name="ThirdScreen" component={ThirdScreen} />
+    </Tab.Navigator>
+  );
+}
+
 
 
 export default class App extends Component {
@@ -164,27 +224,7 @@ export default class App extends Component {
   render() {
     return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerStyle: {
-          backgroundColor: '#EEEDE7',
-        },
-        headerTintColor: '#EEEDE7',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      }}>
-        <Stack.Screen name="Home" component={HomeScreen} options={{
-          headerTitle: (props) => <HeaderComponent {...props} />,
-          headerStyle: {
-            backgroundColor: '#EEEDE7',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            placement:"left"
-          },
-        }}/>
-      </Stack.Navigator>
+      <MyTabs />
     </NavigationContainer>
 
     );
@@ -196,7 +236,7 @@ const styles = StyleSheet.create(
     container: {
       flex: 1,
       backgroundColor:'#EEEDE7',
-      marginBottom: 40
+      // marginBottom: 40
     },
     imageHolder: {
       margin: 5,
