@@ -218,9 +218,9 @@ const styles = StyleSheet.create(
       left: 0,
       bottom: 0,
       right: 0,
-      backgroundColor: 'rgba(0,0,0,0.75)',
-      paddingHorizontal: 10,
-      paddingVertical: 13,
+      backgroundColor: 'white',
+      paddingHorizontal: 5,
+      paddingVertical: 5,
       alignItems: 'center',
       borderRadius: 5
     },
