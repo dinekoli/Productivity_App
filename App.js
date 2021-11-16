@@ -75,11 +75,11 @@ var flatListData = [
     name : 'Taj Mahal',
     imageUrl : require('./Resource/ReactNative-HouseImage/Taj_Mahal.jpeg')
   },
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
-    name : 'Nature',
-    imageUrl : require('./Resource/ReactNative-HouseImage/Nature.jpeg')
-  }
+  // {
+  //   id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
+  //   name : 'Nature',
+  //   imageUrl : require('./Resource/ReactNative-HouseImage/Nature.jpeg')
+  // }
 ]
 
 class HomeScreen extends Component {
