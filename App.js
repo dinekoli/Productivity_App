@@ -3,6 +3,7 @@ import { AppRegistry, TouchableOpacity,  Image, Button, Header, TouchableWithout
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import StackNavigator from './navigation/StackNavigator';
 
 
 class ImageComponent extends Component {
@@ -20,7 +21,7 @@ class ImageComponent extends Component {
             {this.props.name}
           </Text>
           <Text numberOfLines={1} style={styles.textOnImage1}>
-            {this.props.name}
+            {this.props.name1}
           </Text>
         </View>
       </View>
@@ -29,43 +30,48 @@ class ImageComponent extends Component {
 
 }
 
-
-
 var flatListData = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    name : 'Apple',
-    imageUrl : require('./Resource/ReactNative-HouseImage/Apple.jpeg')
+    name : 'Upcoming Holiday',
+    name1 : 'Holiday',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bb',
-    name : 'Camera',
-    imageUrl : require('./Resource/ReactNative-HouseImage/Camera.jpeg')
+    name : 'View Perspectives',
+    name1 : 'Feedback',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bc',
-    name : 'Car',
-    imageUrl : require('./Resource/ReactNative-HouseImage/Car.jpeg')
+    name : 'Expense reports',
+    name1 : 'Finance',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bd',
-    name : 'Taj Mahal',
-    imageUrl : require('./Resource/ReactNative-HouseImage/Taj_Mahal.jpeg')
+    name : 'Take HealthCheck',
+    name1 : 'HealthCheck',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
-    name : 'Nature',
-    imageUrl : require('./Resource/ReactNative-HouseImage/Nature.jpeg')
+    name : 'Get Maintenance',
+    name1 : 'Facility Required',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
-    name : 'Leaves',
-    imageUrl : require('./Resource/ReactNative-HouseImage/leaves.jpeg')
+    name : 'Give And Get Kudos',
+    name1 : 'Kudos',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
-    name : 'Sunrise',
-    imageUrl : require('./Resource/ReactNative-HouseImage/sunrise.jpeg')
+    name : 'Default',
+    name1 : 'Default',
+    imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
   }
 ]
 
@@ -99,7 +105,7 @@ class HomeScreen extends Component {
               // data={this.state.imagesData}
               data={flatListData}
               renderItem={({ item }) =>
-                <ImageComponent imageURI={item.imageUrl} name={item.name.toUpperCase()} />
+                <ImageComponent imageURI={item.imageUrl} name={item.name.toUpperCase()} name1={item.name1.toUpperCase()} />
               }
               keyExtractor={(item) => item.id}
               />
