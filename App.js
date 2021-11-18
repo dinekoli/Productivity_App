@@ -168,18 +168,18 @@ function HeaderComponent() {
   );
 }
 
-function SecondScreen() {
+function SearchScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>SecondScreen</Text>
+      <Text>Search</Text>
     </View>
   );
 }
 
-function ThirdScreen() {
+function NotificationsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>ThirdScreen</Text>
+      <Text>Notifications</Text>
     </View>
   );
 }
@@ -190,8 +190,8 @@ function MyTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" options={{headerShown: false}} component={StackNavigator} />
-      <Tab.Screen name="SecondScreen" component={SecondScreen} />
-      <Tab.Screen name="ThirdScreen" component={ThirdScreen} />
+      <Tab.Screen name="SearchScreen" component={SearchScreen} />
+      <Tab.Screen name="NotificationsScreen" component={NotificationsScreen} />
     </Tab.Navigator>
   );
 }
