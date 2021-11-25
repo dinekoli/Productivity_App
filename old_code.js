@@ -1,188 +1,84 @@
-// // import React, { Component } from 'react';
-
-// // import { AppRegistry, StyleSheet, FlatList, Text, View, Alert, Platform } from 'react-native';
-
-// // import { NavigationContainer } from '@react-navigation/native';
-
-// // import { createStackNavigator } from '@react-navigation/stack';
-
-
-// // class HomeScreen extends Component {
-
-// //  constructor(props)
-// //  {
-// //    super(props);
-
-// //    this.state = { GridViewItems: [
-// //      {key: 'One'},
-// //      {key: 'Two'},
-// //      {key: 'Three'},
-// //      {key: 'Four'},
-// //      {key: 'Five'},
-// //      {key: 'Six'},
-// //      {key: 'Seven'}
-// //    ]}
-// //  }
-
-// //  GetGridViewItem (item) {
-
-// //  Alert.alert(item);
-
-// //  }
-
-// //  static navigationOptions = {
-// //   title: 'Home',
-// // };
-
-// //  render() {
-// //    return (
-
-
-// // <View style={styles.MainContainer}>
-
-// //       <FlatList
-
-// //          data={ this.state.GridViewItems }
-
-// //          renderItem={({item}) =><View style={styles.GridViewBlockStyle}>
-
-// //             <Text style={styles.GridViewInsideTextItemStyle} onPress={this.GetGridViewItem.bind(this, item.key)} > {item.key} </Text>
-
-// //             </View>}
-
-// //          numColumns={2}
-
-// //         />
-
-
-// // </View>
-// //    );
-// //  }
-// // }
-
-// // const Stack = createStackNavigator();
-
-// // function App() {
-// //   return (
-// //     <NavigationContainer>
-// //       <Stack.Navigator screenOptions={{
-// //         headerStyle: {
-// //           backgroundColor: '#f4511e',
-// //         },
-// //         headerTintColor: '#fff',
-// //         headerTitleStyle: {
-// //           fontWeight: 'bold',
-// //         },
-// //       }}>
-// //         <Stack.Screen name="Home" component={HomeScreen} options={{
-// //           title: 'My home',
-// //           headerTitleAlign: 'left',
-// //           headerStyle: {
-// //             backgroundColor: '#f4511e',
-// //           },
-// //           headerTintColor: '#fff',
-// //           headerTitleStyle: {
-// //             fontWeight: 'bold',
-// //             placement:"left"
-// //           },
-// //         }}/>
-// //       </Stack.Navigator>
-// //     </NavigationContainer>
-// //   );
-// // }
-// // const styles = StyleSheet.create({
-
-// // MainContainer :{
-
-// // justifyContent: 'center',
-// // flex:1,
-// // margin: 10,
-// // paddingTop: (Platform.OS) === 'ios' ? 20 : 0
-
-// // },
-
-// // GridViewBlockStyle: {
-
-// //   justifyContent: 'center',
-// //   flex:1,
-// //   alignItems: 'center',
-// //   height: 100,
-// //   margin: 5,
-// //   backgroundColor: '#00BCD4'
-
-// // }
-// // ,
-
-// // GridViewInsideTextItemStyle: {
-
-// //    color: '#fff',
-// //    padding: 10,
-// //    fontSize: 18,
-// //    justifyContent: 'center',
-
-// //  },
-
-// // });
-
-// // export default App;
+import React, { Component } from 'react';
+import { AppRegistry, TouchableOpacity,  Image, Button, Header, TouchableWithoutFeedback, Dimensions, FlatList, ActivityIndicator, StyleSheet, View, Platform, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import StackNavigator from './navigation/StackNavigator';
+// import ImageComponent from './ImageComponent.js';
+// import FlatListData from './FlatListData.json';
+import HeaderComponent from '/Components/HeaderComponent.js';
+import HomeScreen from '/Components/HomeScreen.js';
+import SearchScreen from '/Components/SearchScreen.js';
+import NotificationsScreen from '/Components/NotificationsScreen.js';
 
 
 
-
-// import React, { Component } from 'react';
-// import { AppRegistry, TouchableOpacity,  Image, Button, Header, TouchableWithoutFeedback, Dimensions, FlatList, ActivityIndicator, StyleSheet, View, Platform, Text } from 'react-native';
-// import { NavigationContainer } from '@react-navigation/native';
-
-// import { createStackNavigator } from '@react-navigation/stack';
 // class ImageComponent extends Component {
 
 //   constructor() {
 //     super();
 //   }
+
 //   render() {
 //     return (
 //       <View style={styles.imageHolder}>
-//         <Image source={{ uri: this.props.imageURI }} style={styles.image} />
+//         <Image source={this.props.imageURI} style={styles.image} />
 //         <View style={styles.textViewHolder}>
 //           <Text numberOfLines={1} style={styles.textOnImage}>
 //             {this.props.name}
 //           </Text>
 //           <Text numberOfLines={1} style={styles.textOnImage1}>
-//             {this.props.name}
+//             {this.props.name1}
 //           </Text>
 //         </View>
 //       </View>
 //     );
 //   }
-// }
 
-// const Stack = createStackNavigator();
+// }
 
 // var flatListData = [
 //   {
 //     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-//     name : 'Apple',
-//     imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Apple.jpeg'
+//     name : 'Upcoming Holiday',
+//     name1 : 'Holiday',
+//     imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
 //   },
 //   {
 //     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bb',
-//     name : 'Camera',
-//     imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Camera.jpeg'
+//     name : 'View Perspectives',
+//     name1 : 'Feedback',
+//     imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
 //   },
 //   {
 //     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bc',
-//     name : 'Car',
-//     imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Car.jpeg'
+//     name : 'Expense reports',
+//     name1 : 'Finance',
+//     imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
 //   },
 //   {
 //     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bd',
-//     name : 'Taj Mahal',
-//     imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Taj_Mahal.jpeg'
+//     name : 'Take HealthCheck',
+//     name1 : 'HealthCheck',
+//     imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
 //   },
 //   {
 //     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
-//     name : 'Nature',
-//     imageUrl : '/Users/m_ambin04021/Documents/GitHub/productivity_app/producuctivity_app/Resource/ReactNative-HouseImage/Nature.jpeg'
+//     name : 'Get Maintenance',
+//     name1 : 'Facility Required',
+//     imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
+//   },
+//   {
+//     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
+//     name : 'Give And Get Kudos',
+//     name1 : 'Kudos',
+//     imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
+//   },
+//   {
+//     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28be',
+//     name : 'Default',
+//     name1 : 'Default',
+//     imageUrl : require('./Resource/ReactNative-HouseImage/Default.jpg')
 //   }
 // ]
 
@@ -192,6 +88,7 @@
 //     super();
 //     this.state = { imagesData: null, loading: false, gridView: true, btnText: 'Show List' }
 //   }
+
 //   render() {
 //     return (
 //       <View style={styles.container} >
@@ -213,30 +110,58 @@
 //               key={(this.state.gridView) ? 1 : 0}
 //               numColumns={2}
 //               // data={this.state.imagesData}
-//               data={flatListData}
+//               data={FlatListData}
 //               renderItem={({ item }) =>
-//                 <ImageComponent imageURI={item.imageUrl} name={item.name.toUpperCase()} />
+//                 <ImageComponent imageURI={require('./Resource/ReactNative-HouseImage/Default.jpg')} name={item.name.toUpperCase()} name1={item.name1.toUpperCase()} />
 //               }
 //               keyExtractor={(item) => item.id}
 //               />
 
 //           </View>)
-//                   }
+//           }
 //       </View>
-
 //     );
 //   }
 // }
 
+const Stack = createStackNavigator();
+
+const StackNavigator = () => {
+  return (
+    <Stack.Navigator screenOptions={{
+      headerStyle: {
+        backgroundColor: '#EEEDE7',
+      },
+      headerTintColor: '#EEEDE7',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}>
+      <Stack.Screen name="Home" component={HomeScreen} options={{
+        headerTitle: (props) => <HeaderComponent {...props} />,
+        headerStyle: {
+          backgroundColor: '#EEEDE7',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          placement:"left"
+        },
+      }}/>
+    </Stack.Navigator>
+  );
+};
+
+
 // function HeaderComponent() {
 //   return (
-//     <View style={{ height: 'auto', width: Dimensions.get('window').width*0.93, alignItems: 'center', justifyContent: 'flex-start', flexDirection: 'row'}}>
+//     <View style={styles.HeaderRow}>
 
-//       <TouchableWithoutFeedback style={{flex: 2}} onPress={() => alert('This is profile image')}>
+//       <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is profile image')}>
 //         <Image source={require('./Resource/ReactNative-HouseImage/user.png')} style={styles.UserImage}  />
 //       </TouchableWithoutFeedback>
 
-//       <Text style={{ flex: 1, fontWeight: 'bold', fontSize: 20, fontWeight: '800'}}>Dashboard</Text>
+//       <Text style={styles.HeaderName}>Dashboard</Text>
 
 //       <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is bell image')}>
 //         <Image source={require('./Resource/ReactNative-HouseImage/bell.png')} style={styles.BellImage}  />
@@ -250,167 +175,162 @@
 //   );
 // }
 
-
-// export default class App extends Component {
-
-//   constructor() {
-//     super();
-//     this.state = { imagesData: null, loading: true, gridView: true, btnText: 'Show List' }
-//   }
-
-//   componentDidMount() {
-//     fetch('https://picsum.photos/v2/list?page=2&limit=30')
-//       .then((response) => response.json())
-//       .then((responseJson) => {
-//         this.setState({ imagesData: responseJson, loading: false });
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   }
-
-//   // changeView = () => {
-//   //   this.setState({ gridView: !this.state.gridView }, () => {
-//   //     if (this.state.gridView) {
-//   //       this.setState({ btnText: 'Show List' });
-//   //     }
-//   //     else {
-//   //       this.setState({ btnText: 'Show Grid' });
-//   //     }
-//   //   });
-//   // }
-
-//   render() {
-//     return (
-//       // <View style={styles.container} >
-//       //   {
-//       //     (this.state.loading)
-//       //       ?
-//       //       (<View style={styles.loadingContainer}>
-//       //         <ActivityIndicator size="large" />
-//       //         <Text style={styles.loadingText}>Please Wait...</Text>
-//       //       </View>)
-//       //       :
-//       //       (<View style={{ flex: 1 }}>
-
-//       //         <TouchableOpacity activeOpacity={0.8} style={styles.buttonDesign} onPress={this.changeView}>
-//       //           <Text style={styles.buttonText}>{this.state.btnText}</Text>
-//       //         </TouchableOpacity>
-//       //         {/* for (let i = 0; i < 7; i++) {
-//       //         } */}
-
-
-//       //         <FlatList
-//       //           key={(this.state.gridView) ? 1 : 0}
-//       //           numColumns={2}
-//       //           // data={this.state.imagesData}
-//       //           data={flatListData}
-//       //           renderItem={({ item }) =>
-//       //             <ImageComponent imageURI={item.imageUrl} name={item.name.toUpperCase()} />
-//       //           }
-//       //           keyExtractor={(item) => item.id}
-//       //           />
-
-//       //       </View>)
-//       //   }
-//       // </View>
-
-//     <NavigationContainer>
-//       <Stack.Navigator screenOptions={{
-//         headerStyle: {
-//           backgroundColor: '#EEEDE7',
-//         },
-//         headerTintColor: '#EEEDE7',
-//         headerTitleStyle: {
-//           fontWeight: 'bold',
-//         },
-//       }}>
-//         <Stack.Screen name="Home" component={HomeScreen} options={{
-//           headerTitle: (props) => <HeaderComponent {...props} />,          
-//           headerStyle: {
-//             backgroundColor: '#EEEDE7',
-//           },
-//           headerTintColor: '#fff',
-//           headerTitleStyle: {
-//             fontWeight: 'bold',
-//             placement:"left"
-//           },
-//         }}/>
-//       </Stack.Navigator>
-//     </NavigationContainer>
-
-//     );
-//   }
+// function SearchScreen() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Search</Text>
+//     </View>
+//   );
 // }
 
-// const styles = StyleSheet.create(
-//   {
-//     container: {
-//       flex: 1,
-//       backgroundColor:'#EEEDE7'
-//     },
-//     imageHolder: {
-//       margin: 5,
-//       height: 160,
-//       flex: 1,
-//       position: 'relative'
-//     },
-//     image: {
-//       height: '100%',
-//       width: '100%',
-//       resizeMode: 'cover'
-//     },
-//     textViewHolder: {
-//       position: 'absolute',
-//       left: 0,
-//       bottom: 0,
-//       right: 0,
-//       backgroundColor: 'rgba(0,0,0,0.75)',
-//       paddingHorizontal: 10,
-//       paddingVertical: 13,
-//       alignItems: 'center'
-//     },
-//     textOnImage: {
-//       color: 'white',
-//       alignSelf: 'flex-start'
-//     },
-//     textOnImage1: {
-//       color: 'white',
-//       alignSelf: 'flex-start',
-//       fontSize: 10
-//     },
-//     loadingContainer: {
-//       flex: 1,
-//       justifyContent: 'center',
-//       alignItems: 'center'
-//     },
-//     loadingText: {
-//       paddingTop: 10,
-//       fontSize: 18,
-//       color: 'black'
-//     },
-//     buttonDesign: {
-//       padding: 15,
-//       backgroundColor: '#e91e63'
-//     },
-//     buttonText: {
-//       color: 'white',
-//       textAlign: 'center',
-//       alignSelf: 'stretch'
-//     },
-//     UserImage: {
-//       marginRight: 10,
-//       width: 25,
-//       height: 25
-//     },
-//     BellImage: {
-//       right: 10,
-//       width: 25,
-//       height: 25
-//     },
-//     SearchImage: {
-//       right: 0,
-//       width: 20,
-//       height: 20
-//     }
-//   });
+// function NotificationsScreen() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Notifications</Text>
+//     </View>
+//   );
+// }
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" options={{headerShown: false}} component={StackNavigator} />
+      <Tab.Screen name="SearchScreen" component={SearchScreen} />
+      <Tab.Screen name="NotificationsScreen" component={NotificationsScreen} />
+    </Tab.Navigator>
+  );
+}
+
+
+
+export default class App extends Component {
+
+  constructor() {
+    super();
+    this.state = { imagesData: null, loading: true, gridView: true, btnText: 'Show List' }
+  }
+
+  componentDidMount() {
+    fetch('https://picsum.photos/v2/list?page=2&limit=30')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({ imagesData: responseJson, loading: false });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  // changeView = () => {
+  //   this.setState({ gridView: !this.state.gridView }, () => {
+  //     if (this.state.gridView) {
+  //       this.setState({ btnText: 'Show List' });
+  //     }
+  //     else {
+  //       this.setState({ btnText: 'Show Grid' });
+  //     }
+  //   });
+  // }
+
+  render() {
+    return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+
+    );
+  }
+}
+
+const styles = StyleSheet.create(
+  {
+    container: {
+      flex: 1,
+      backgroundColor:'#EEEDE7',
+      // marginBottom: 40
+    },
+    imageHolder: {
+      margin: 5,
+      height: Dimensions.get('window').width*0.5 - 10,
+      width: Dimensions.get('window').width*0.5 - 10,
+      // flex: 1,
+      position: 'relative',
+      backgroundColor:'#FFF',
+      borderColor: '#000',
+    },
+    image: {
+      height: '100%',
+      width: '100%',
+      resizeMode: 'cover',
+      borderRadius: 5
+    },
+    textViewHolder: {
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
+      right: 0,
+      backgroundColor: 'white',
+      paddingHorizontal: 5,
+      paddingVertical: 5,
+      alignItems: 'center',
+      borderRadius: 5
+    },
+    textOnImage: {
+      color: '#055C9D',
+      alignSelf: 'flex-start'
+    },
+    textOnImage1: {
+      color: 'black',
+      alignSelf: 'flex-start',
+      fontSize: 10
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    loadingText: {
+      paddingTop: 10,
+      fontSize: 18,
+      color: 'black'
+    },
+    buttonDesign: {
+      padding: 15,
+      backgroundColor: '#e91e63'
+    },
+    buttonText: {
+      color: 'white',
+      textAlign: 'center',
+      alignSelf: 'stretch'
+    },
+    UserImage: {
+      marginRight: 10,
+      width: 25,
+      height: 25
+    },
+    BellImage: {
+      right: 10,
+      width: 25,
+      height: 25
+    },
+    SearchImage: {
+      right: 0,
+      width: 20,
+      height: 20
+    },
+    HeaderRow: {
+      height: 40,
+      width: Dimensions.get('window').width*0.93,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      flexDirection: 'row'
+    },
+    HeaderName: {
+      flex: 1,
+      fontWeight: 'bold',
+      fontSize: 20,
+      fontWeight: '800'
+    }
+  });
