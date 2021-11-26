@@ -4,6 +4,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
+#import "MSAL/MSAL.h"
+
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
@@ -57,6 +59,24 @@ static void InitializeFlipper(UIApplication *application) {
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
+}
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    return [MSALPublicClientApplication handleMSALResponse:url
+                                         sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+}
+
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
+API_AVAILABLE(ios(13.0)){
+    UIOpenURLContext *context = URLContexts.anyObject;
+    NSURL *url = context.URL;
+    NSString *sourceApplication = context.options.sourceApplication;
+    
+    [MSALPublicClientApplication handleMSALResponse:url sourceApplication:sourceApplication];
 }
 
 @end

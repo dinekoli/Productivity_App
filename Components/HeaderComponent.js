@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Image, TouchableWithoutFeedback, Dimensions, StyleSheet, View, Text } from 'react-native';
-
 export default class HeaderComponent extends Component {
   
     constructor() {
@@ -12,17 +11,17 @@ export default class HeaderComponent extends Component {
             <View style={styles.HeaderRow}>
 
             <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is profile image')}>
-              <Image source={require('./Resource/ReactNative-HouseImage/user.png')} style={styles.UserImage}  />
+              <Image source={require('../Resource/ReactNative-HouseImage/user.png')} style={styles.UserImage}  />
             </TouchableWithoutFeedback>
       
             <Text style={styles.HeaderName}>Dashboard</Text>
       
             <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is bell image')}>
-              <Image source={require('./Resource/ReactNative-HouseImage/bell.png')} style={styles.BellImage}  />
+              <Image source={require('../Resource/ReactNative-HouseImage/bell.png')} style={styles.BellImage}  />
             </TouchableWithoutFeedback>
       
             <TouchableWithoutFeedback style={{flex: 1}} onPress={() => alert('This is search image')}>
-              <Image source={require('./Resource/ReactNative-HouseImage/search.png')} style={styles.SearchImage}  />
+              <Image source={require('../Resource/ReactNative-HouseImage/search.png')} style={styles.SearchImage}  />
             </TouchableWithoutFeedback>
       
           </View>

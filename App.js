@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HeaderComponent from '/Components/HeaderComponent.js';
-import HomeScreen from '/Components/HomeScreen.js';
-import SearchScreen from '/Components/SearchScreen.js';
-import NotificationsScreen from '/Components/NotificationsScreen.js';
+import HeaderComponent from './Components/HeaderComponent';
+import HomeScreen from './Components/HomeScreen.js';
+import SearchScreen from './Components/SearchScreen.js';
+import NotificationsScreen from './Components/NotificationsScreen.js';
 
 const Stack = createStackNavigator();
 

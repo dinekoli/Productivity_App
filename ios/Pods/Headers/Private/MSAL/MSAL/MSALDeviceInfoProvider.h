@@ -1,0 +1,1 @@
+../../../../MSAL/MSAL/src/instance/MSALDeviceInfoProvider.h

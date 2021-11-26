@@ -73,6 +73,9 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - libevent (2.1.12)
+  - MSAL (1.1.24):
+    - MSAL/app-lib (= 1.1.24)
+  - MSAL/app-lib (1.1.24)
   - OpenSSL-Universal (1.1.180)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -272,6 +275,9 @@ PODS:
   - React-jsinspector (0.66.2)
   - React-logger (0.66.2):
     - glog
+  - react-native-msal (4.0.2):
+    - MSAL
+    - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
   - React-perflogger (0.66.2)
@@ -420,6 +426,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-msal (from `../node_modules/react-native-msal`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -453,6 +460,7 @@ SPEC REPOS:
     - FlipperKit
     - fmt
     - libevent
+    - MSAL
     - OpenSSL-Universal
     - YogaKit
 
@@ -491,6 +499,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-msal:
+    :path: "../node_modules/react-native-msal"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
@@ -546,6 +556,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
+  MSAL: fc6dce17fe34cd14d711651c67f46bff5429ad2d
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   RCT-Folly: a21c126816d8025b547704b777a2ba552f3d9fa9
   RCTRequired: 5e9e85f48da8dd447f5834ce14c6799ea8c7f41a
@@ -559,6 +570,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 573adf0d6ce5e05c55872dfde5b1589acb88a96f
   React-jsinspector: b08b2d5e86cef9dc4bb69f0aa0bbe6d210fb7da5
   React-logger: faee236598b0f7e1a5e3b68577016ac451f1f993
+  react-native-msal: ae5bd8ab0110a3abd1a261fe7e5fad045c1c95f7
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
   React-perflogger: 5ab487cacfe6ec19bfe3d3f8072bf71eb07d63da
   React-RCTActionSheet: 03f25695e095fb5aa003828620943c74cc281fec
@@ -581,4 +593,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: c7a149d135d0e610205755bc7dc6cf20b989a126
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

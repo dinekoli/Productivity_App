@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, StyleSheet, View, Text } from 'react-native';
-import FlatListData from '/Data/FlatListData.json';
-import ImageComponent from '/Components/ImageComponent.js';
+import FlatListData from '../Data/FlatListData.json';
+import ImageComponent from '../Components/ImageComponent.js';
 
 
 
@@ -30,7 +30,7 @@ export default class HomeScreen extends Component {
                   numColumns={2}
                   data={FlatListData}
                   renderItem={({ item }) =>
-                    <ImageComponent imageURI={require('/Resource/ReactNative-HouseImage/Default.jpg')} name={item.name.toUpperCase()} name1={item.name1.toUpperCase()} />
+                    <ImageComponent imageURI={require('../Resource/ReactNative-HouseImage/Default.jpg')} name={item.name.toUpperCase()} name1={item.name1.toUpperCase()} />
                   }
                   keyExtractor={(item) => item.id}
                   />

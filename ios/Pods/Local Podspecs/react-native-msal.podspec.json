@@ -1,0 +1,24 @@
+{
+  "name": "react-native-msal",
+  "version": "4.0.2",
+  "summary": "React Native wrapper for iOS and Android",
+  "homepage": "https://github.com/stashenergy/react-native-msal#readme",
+  "license": "MIT",
+  "authors": "Stash Energy <dev@stash.energy> (https://stash.energy)",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/stashenergy/react-native-msal.git",
+    "tag": "v4.0.2"
+  },
+  "source_files": "ios/**/*.{h,m}",
+  "dependencies": {
+    "React-Core": [
+
+    ],
+    "MSAL": [
+
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+../../../../../node_modules/react-native-msal/ios/UIViewController+RNMSALUtils.h

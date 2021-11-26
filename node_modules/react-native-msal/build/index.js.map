@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,uBAAuB,EAAE,MAAM,2BAA2B,CAAC;AACpE,eAAe,uBAAuB,CAAC;AACvC,cAAc,SAAS,CAAC","sourcesContent":["import { PublicClientApplication } from './publicClientApplication';\nexport default PublicClientApplication;\nexport * from './types';\n"]}
