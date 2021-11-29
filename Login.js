@@ -47,7 +47,6 @@
        promptType: 3,
        prompt: 'select_account' });
        setAuthResult(res);
-       alert(res);
      } catch (error) {
        console.warn(error);
        alert(error);
@@ -108,6 +107,7 @@
        </ScrollView>
      </SafeAreaView>
    );
+
  }
  
  const styles = StyleSheet.create({

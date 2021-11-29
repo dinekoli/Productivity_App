@@ -15,6 +15,7 @@ export const b2cConfig: B2CConfiguration = {
 };
 //msauth.$(PRODUCT_BUNDLE_IDENTIFIER)://auth
 export const b2cScopes = [
+  "User.Read",
   "Sites.Read.All",
   "User.ReadBasic.All",
   "Calendars.ReadWrite",
